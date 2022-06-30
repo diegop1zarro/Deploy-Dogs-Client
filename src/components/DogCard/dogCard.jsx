@@ -12,7 +12,9 @@ export default function DogCard (props){
 <NavLink className="title" to={`/dogs/${props.id}`}>
 <h3 >{props.name}</h3>
 </NavLink>
+<NavLink to={`/dogs/${props.id}`}>
 <img className="img" src={props.image} alt={props.name} />
+</NavLink>
 <div className="infoCard">
 <h4>Temperaments: </h4>
 <p>{props.temperament}</p>
