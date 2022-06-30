@@ -86,11 +86,11 @@ console.log(errors)
         e.preventDefault();
         const errorSave = validate(input)
         if(Object.values(errorSave).length !== 0){
-            alert('completar todos los campos requeridos')
+            alert('complete all required fields')
         }else{
             dispatch(createDog(input))
           console.log(input)
-          alert('breed creada')
+          alert('breed created')
           setInput({
               name: '',
               weight: 'min - max',

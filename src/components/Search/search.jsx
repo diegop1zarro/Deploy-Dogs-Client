@@ -7,9 +7,9 @@ import '../../Style/Search.css'
 function validacion(name){
     let error = ''
     if(!/^[A-Za-z0-9-ñ\s]+$/g.test(name)){
-        error = 'no se pueden colocar caracteres especiales'
+        error = 'special characters cannot be placed'
     }else if(name.length > 30){
-        error = 'no se puede colocar mas de 30 letras'
+        error = 'you can not place more than 30 letters'
     }
     return error
 }
@@ -33,7 +33,7 @@ function handleSubmit(e){
     e.preventDefault();
     const errorSave = validacion(name)
     if(Object.values(errorSave).length !== 0){
-        alert('no debes tener errores para poder buscar')
+        alert('you must not have errors to be able to search')
         setError('')
     }
     else{

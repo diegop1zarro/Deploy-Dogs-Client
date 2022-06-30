@@ -20,7 +20,7 @@ useEffect(()=>{
 function handleDelete(e){
     e.preventDefault()
     dispatch(deleteDog(dogsDetails.id))
-    alert('se eliminó correctamente')
+    alert('breed was deleted correctly')
     navegar('/home')
 
 }
