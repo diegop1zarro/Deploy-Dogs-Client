@@ -103,7 +103,7 @@ const handleSortAlf=(e)=>{
   <div>
              <p  className='titulitos'>Alphabetically</p>
 <select onChange={(e)=> handleSortAlf(e)}>
-<option defaultValue='' disabled selected>Selecciona una opción</option>
+<option defaultValue='' disabled selected>Select an option</option>
     <option value='A_Z' >A - Z</option>
     <option value='Z_A' >Z - A</option>
 </select>
@@ -112,7 +112,7 @@ const handleSortAlf=(e)=>{
 <div>
             <p className='titulitos'> By weight</p>
 <select onChange={(e)=> handleOrdenPeso(e)}>
-<option defaultValue='' disabled selected>Selecciona una opción</option>
+<option defaultValue='' disabled selected>Select an option</option>
    <option value='Asc'> menor a mayor</option>
   <option value='Desc'>mayor a menor</option>
 </select>
