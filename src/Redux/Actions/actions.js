@@ -112,7 +112,9 @@ export function deleteDog(id){
    await axios.delete('https://dogs-diegop1zarro.herokuapp.com/delete/'+ id)
     .then(()=>{
       dispatch({
-        type:DELETE_DOG
+        type:DELETE_DOG,
+        payload: id
+
       })
     })
   }
