@@ -89,7 +89,7 @@ const handleSortAlf=(e)=>{
       <div>
        <NavBar/>
       
-      <div className='buttonCreateRefresh'>
+      <div className='CreateRefresh'>
        <Search/>
          <Link to='/dog'>
       <button className='botonesHome' >Created your breed</button>   
@@ -103,7 +103,7 @@ const handleSortAlf=(e)=>{
   <div>
              <p  className='titulitos'>Alphabetically</p>
 <select onChange={(e)=> handleSortAlf(e)}>
-<option defaultValue='' disabled selected>Select an option</option>
+<option defaultValue='' disabled selected>Selecciona una opción</option>
     <option value='A_Z' >A - Z</option>
     <option value='Z_A' >Z - A</option>
 </select>
@@ -112,7 +112,7 @@ const handleSortAlf=(e)=>{
 <div>
             <p className='titulitos'> By weight</p>
 <select onChange={(e)=> handleOrdenPeso(e)}>
-<option defaultValue='' disabled selected>Select an option</option>
+<option defaultValue='' disabled selected>Selecciona una opción</option>
    <option value='Asc'> menor a mayor</option>
   <option value='Desc'>mayor a menor</option>
 </select>
@@ -153,12 +153,13 @@ const handleSortAlf=(e)=>{
       paginado= {paginado}
       />
        { dogs.error || dogs.errorDB ? <h4> no se ha encontrado el resultado</h4>:
+       
+        DogsActuales.length > 0 ?
      <div className='ContainerCards'>
-        { DogsActuales.length > 0 ? (
-        DogsActuales?.map((dog) => {
+        
+       { DogsActuales?.map((dog) => {
          return (
            <div key={dog.id}>
-
              <DogCard  
              key={dog.id}
              name= {dog.name}
@@ -167,9 +168,13 @@ const handleSortAlf=(e)=>{
              temperament={dog.temperament? dog.temperament : dog.InDataBase? dog.temperaments.map(e => e.name + (' , ')) : 'No temperaments found'}
             weight={dog.weight}
             CreadoPorDiego={ dog.Creado_por_Diego ? dog.Creado_por_Diego: 'Existente'}
-            /> </div> 
-            ) }) ) : <Loading/>}
+            /> 
+            </div> 
+            )
+            })
+          }
        </div>
+       : <Loading/>
             
              }
     </div>
