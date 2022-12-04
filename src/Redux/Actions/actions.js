@@ -18,7 +18,7 @@ const URL = 'https://deploy-dogs-api-production.up.railway.app/'
 export const getAllDogs = () => {
     return  function (dispatch) {
       
-    return fetch(URL + 'dogs')
+    return fetch(`${URL}dogs`)
     .then(info => info.json())
     .then (data => dispatch({
       type: GET_ALL_DOGS,
@@ -30,7 +30,7 @@ export const getAllDogs = () => {
 
 export function getAllTemperaments(){
   return function (dispatch){
-     fetch(URL + 'temperament')
+     fetch(`${URL}temperament`)
     .then(info => info.json())
     .then (data=>dispatch({type:GET_ALL_TEMPERAMENTS, payload: data }))
   }
@@ -38,7 +38,7 @@ export function getAllTemperaments(){
 export function getAllDetails (id){
   return  function (dispatch) {
       
-    return fetch(URL + 'dogs/'+ id)
+    return fetch(`${URL}dogs/${id}`)
     .then(info => info.json())
     .then (data => dispatch({
       type: GET_ALL_DETAILS,
@@ -51,7 +51,7 @@ export function getAllDetails (id){
 export function getByName(name){
   return function (dispatch) {
     try{
-      return  fetch( URL + 'dogs?name='+ name)
+      return  fetch(`${URL}dogs?name=${name}`)
       .then(info => info.json())
       .then (data => dispatch({
         type: GET_BY_NAME,
@@ -66,7 +66,7 @@ export function getByName(name){
 }
 export function createDog(dog){
   return async function(){
-  const post = await axios.post(URL + 'dog',dog)
+  const post = await axios.post(`${URL}dog`,dog)
   return post
     }
     
@@ -109,7 +109,7 @@ export function limpiarEstadoHome(){
 }
 export function deleteDog(id){
   return async function(dispatch){
-   await axios.delete(URL + 'delete/'+ id)
+   await axios.delete(`${URL}delete/${id}`)
     .then(()=>{
       dispatch({
         type:DELETE_DOG,
